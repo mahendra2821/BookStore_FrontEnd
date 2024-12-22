@@ -1,0 +1,38 @@
+/* Loader Animation */
+.loader {
+    border: 6px solid #f3f3f3; /* Light gray */
+    border-top: 6px solid #4ade80; /* Green */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* Pop Animation for Success Message */
+  @keyframes pop {
+    0% {
+      transform: scale(0.8);
+      opacity: 0;
+    }
+    50% {
+      transform: scale(1.1);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  .animate-pop {
+    animation: pop 0.4s ease-out;
+  }
+  

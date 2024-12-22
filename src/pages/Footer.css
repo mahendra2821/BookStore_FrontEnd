@@ -1,0 +1,16 @@
+hr {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  footer div ul li a {
+    transition: color 0.3s ease;
+  }
+  
+  footer div ul li a:hover {
+    color: rgb(255, 255, 255);
+  }
+  
+  footer div span {
+    transition: transform 0.3s ease;
+  }
+  

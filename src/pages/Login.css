@@ -1,0 +1,43 @@
+/* flower animation */
+@keyframes flowerDrop {
+    0% {
+      opacity: 1;
+      transform: translateY(-10px);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(500px);
+    }
+  }
+  
+  .flower-animation {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 999;
+    animation: flowerDrop 3s ease-in-out infinite;
+  }
+  
+  .flower-animation::before {
+    content: " 🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸";
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    font-size: 30px;
+    animation: flowerDrop 3s ease-in-out infinite;
+    transform-origin: top center;
+  }
+  
+  .flower-animation::after {
+    content: "🌸";
+    position: absolute;
+    top: 20%;
+    left: 40%;
+    font-size: 30px;
+    animation: flowerDrop 4s ease-in-out infinite;
+    transform-origin: top center;
+  }
+  

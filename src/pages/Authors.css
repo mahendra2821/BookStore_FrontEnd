@@ -1,0 +1,24 @@
+/* FeaturedAuthors.css */
+
+/* Keyframe animation for underline effect */
+@keyframes textDecorationAnimation {
+    0% {
+      text-decoration: none;
+      color: #ffffff;
+    }
+    50% {
+      text-decoration: underline;
+      text-decoration-color: #ff6f61; /* Change to your desired underline color */
+      color: #ff6f61; /* Change to desired text color during animation */
+    }
+    100% {
+      text-decoration: none;
+      color: #ffffff;
+    }
+  }
+  
+  /* Apply the animation to the heading */
+  .animate-text-decoration {
+    animation: textDecorationAnimation 2s ease-in-out infinite;
+  }
+  

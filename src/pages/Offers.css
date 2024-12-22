@@ -1,0 +1,60 @@
+/* SpecialOffers.css */
+
+/* Text Glow Animation */
+/* @keyframes glow {
+    0% {
+      text-shadow: 0 0 10px #ff9, 0 0 20px #ff9, 0 0 30px #ff9, 0 0 40px #ff9;
+    
+    /* 50% {
+      text-shadow: 0 0 20px #ff0, 0 0 30px #ff0, 0 0 50px #ff0, 0 0 60px #ff0; */
+    /* }
+    100% {
+      text-shadow: 0 0 10px #ff9, 0 0 20px #ff9, 0 0 30px #ff9, 0 0 40px #ff9;
+    }
+  } 
+   */
+
+   
+  .text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  }
+  
+  .animate-text-glow {
+    animation: glow 1.5s infinite alternate;
+  }
+  
+  /* Card Styling */
+  .offer-card {
+    min-width: 280px;
+    max-width: 350px;
+    text-align: center;
+    color: white;
+    background-size: 200% 200%;
+    animation: background-pan 6s ease infinite;
+  }
+  
+  /* Background Gradient Animation */
+  @keyframes background-pan {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .special-offers-section {
+      padding: 12px;
+    }
+  
+    .offer-card {
+      margin: 0 auto;
+      min-width: 250px;
+    }
+  }
+  
