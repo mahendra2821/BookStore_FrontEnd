@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "./login.css"; // Make sure to adjust the CSS as needed
+import "./Login.css"; // Make sure to adjust the CSS as needed
 import { Link } from "react-router-dom";
 
 const Login = () => {
