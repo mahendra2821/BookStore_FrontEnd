@@ -52,18 +52,18 @@ const AdminLogin = () => {
     }
   };
 
-  const handleReset = () => {
-    setFormData({
-      email: "",
-      password: "",
-    });
-    setMessage("");
-    setIsSuccess(null);
-  };
+  // const handleReset = () => {
+  //   setFormData({
+  //     email: "",
+  //     password: "",
+  //   });
+  //   setMessage("");
+  //   setIsSuccess(null);
+  // };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-900">
-      <div className="bg-black rounded-lg shadow-lg p-6 w-full max-w-md relative">
+    <div className="min-h-screen flex items-center justify-center bg-black">
+      <div className="bg-gray-900 rounded-lg shadow-lg p-6 w-full max-w-md relative">
         {/* Loading Spinner */}
         {loading && (
           <div className="absolute inset-0 bg-white bg-opacity-75 flex justify-center items-center">

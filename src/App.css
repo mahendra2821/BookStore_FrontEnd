@@ -1,12 +1,12 @@
 /* Global Colors */
-:root {
+ :root {
     --bg-color: #000000;
     --text-color: #FFFFFF;
     --accent-color: #302223;
     --hover-color: #1DB954;
     --border-color: #333333;
   }
-  
+   
   /* Global Body */
   body {
     background-color: var(--bg-color);

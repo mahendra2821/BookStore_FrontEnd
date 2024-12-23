@@ -1,17 +1,17 @@
-import React, { useState } from "react";
-import {Link} from 'react-router-dom'
+
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+
 const AdminSignup = () => {
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    password: "",
-    secretKey: "",
+    name: '',
+    email: '',
+    password: '',
+    secretKey: '',
   });
 
-  const [showPassword, setShowPassword] = useState(false);
-  const [showEncryptionId, setShowEncryptionId] = useState(false);
-  const [message, setMessage] = useState("");
-  const [isSuccess, setIsSuccess] = useState(null); // null, true, or false
+  const [message, setMessage] = useState('');
+  const [isSuccess, setIsSuccess] = useState(null);
 
   const handleChange = (e) => {
     setFormData({
@@ -22,43 +22,50 @@ const AdminSignup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Validate form data
+    if (!formData.name || !formData.email || !formData.password || !formData.secretKey) {
+      setIsSuccess(false);
+      setMessage('All fields are required.');
+      return;
+    }
+
     try {
-      const response = await fetch("http://localhost:5000/api/auth/admin/signup", {
-        method: "POST",
+      const response = await fetch('http://localhost:5000/api/auth/admin/signup', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(formData),
       });
 
+      const data = await response.json();
+
       if (response.ok) {
-        const data = await response.json();
-        localStorage.setItem("token", data.data.token); // Store token in session storage
         setIsSuccess(true);
-        setMessage("Registration successful! You may Login.");
+        setMessage(data.message);
       } else {
-        const errorData = await response.json();
         setIsSuccess(false);
-        setMessage(errorData.message || "Registration failed. Please try again.");
+        setMessage(data.message || 'Registration failed. Please try again.');
       }
     } catch (error) {
       setIsSuccess(false);
-      setMessage("An error occurred. Please check your connection and try again.");
+      setMessage('An error occurred. Please try again later.');
     }
   };
 
-  const handleProceed = () => {
-    window.location.href = "/adminlogin"; // Redirect to the dashboard page or any other page
+  const handleClose = () => {
+    window.location.href = '/adminlogin'; // Close and redirect to login page
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-900">
-      <div className="bg-black rounded-lg shadow-lg p-6 w-full max-w-md">
-        <h2 className="text-2xl font-bold text-center mb-6">Admin Registration</h2>
+    <div className="min-h-screen flex items-center justify-center bg-black">
+      <div className="bg-gray-900 rounded-lg shadow-lg p-6 w-full max-w-md">
+        <h2 className="text-2xl font-bold text-center mb-6 text-white">Admin Registration</h2>
         <form onSubmit={handleSubmit}>
           {/* Name Field */}
           <div className="mb-4">
-            <label htmlFor="name" className="block text-sm font-medium mb-1">
+            <label htmlFor="name" className="block text-sm font-medium mb-1 text-white ">
               Name
             </label>
             <input
@@ -67,14 +74,14 @@ const AdminSignup = () => {
               name="name"
               value={formData.name}
               onChange={handleChange}
-              className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-400"
+              className="w-full px-4 py-2 border-blue-300 rounded-lg"
               required
             />
           </div>
 
           {/* Email Field */}
           <div className="mb-4">
-            <label htmlFor="email" className="block text-sm font-medium mb-1">
+            <label htmlFor="email" className="block text-sm font-medium mb-1 text-white">
               Email
             </label>
             <input
@@ -83,65 +90,54 @@ const AdminSignup = () => {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-400"
+              className="w-full px-4 py-2 border rounded-lg  border border-blue-300"
               required
             />
           </div>
 
           {/* Password Field */}
-          <div className="mb-4 relative">
-            <label htmlFor="password" className="block text-sm font-medium mb-1">
+          <div className="mb-4">
+            <label htmlFor="password" className="block text-sm font-medium mb-1 text-white">
               Password
             </label>
             <input
-              type={showPassword ? "text" : "password"}
+              type="password"
               id="password"
               name="password"
               value={formData.password}
               onChange={handleChange}
-              className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-400"
+              className="w-full px-4 py-2 border border-blue-300 rounded-lg"
               required
             />
-            <button
-              type="button"
-              onClick={() => setShowPassword(!showPassword)}
-              className="absolute right-3 top-9 text-blue-500 hover:text-blue-600"
-            >
-              {showPassword ? "Hide" : "Show"}
-            </button>
           </div>
 
-          {/* Encryption ID Field */}
-          <div className="mb-6 relative">
-            <label htmlFor="secretKey" className="block text-sm font-medium mb-1">
-              Encryption ID
+          {/* Secret Key Field */}
+          <div className="mb-6">
+            <label htmlFor="secretKey" className="block text-sm font-medium mb-1 text-white">
+              Secret Key
             </label>
             <input
-              type={showEncryptionId ? "text" : "password"}
+              type="password"
               id="secretKey"
               name="secretKey"
               value={formData.secretKey}
               onChange={handleChange}
-              className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-400"
+              className="w-full px-4 py-2border border-blue-300 rounded-lg"
               required
             />
-            <button
-              type="button"
-              onClick={() => setShowEncryptionId(!showEncryptionId)}
-              className="absolute right-3 top-9 text-blue-500 hover:text-blue-600"
-            >
-              {showEncryptionId ? "Hide" : "Show"}
-            </button>
           </div>
 
           {/* Buttons */}
-          <div className="flex justify-between">
-           <Link to="/adminsignlogin" > 
-           <button
-              className="w-full mr-[10vw] py-2 bg-red-500 hover:bg-red-600 text-white rounded-lg">
+         <div className="flex justify-between">
+            {/* Close Button */}
+            {/* <button
+              type="button"
+              onClick={handleClose}
+              className="w-full py-2 bg-red-500 hover:bg-red-600 text-white rounded-lg"
+            >
               Close
-            </button>
-            </Link>
+            </button> */}
+            {/* Submit Button */}
             <button
               type="submit"
               className="w-1/2 ml-2 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg"
@@ -155,22 +151,23 @@ const AdminSignup = () => {
         {message && (
           <div
             className={`mt-4 p-2 rounded-lg text-center ${
-              isSuccess ? "bg-green-100 text-green-700" : "bg-red-100 text-red-700"
+              isSuccess ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'
             }`}
           >
             {message}
           </div>
         )}
 
-        {/* Proceed Button */}
+        {/* Login Button after successful registration */}
         {isSuccess && (
           <div className="mt-4">
-            <button
-              onClick={handleProceed}
-              className="w-full py-2 bg-green-500 hover:bg-green-600 text-white rounded-lg"
-            >
-              Login
-            </button>
+            <Link to="/adminlogin">
+              <button
+                className="w-full py-2 bg-green-500 hover:bg-green-600 text-white rounded-lg"
+              >
+                Login
+              </button>
+            </Link>
           </div>
         )}
       </div>

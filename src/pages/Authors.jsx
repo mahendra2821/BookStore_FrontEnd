@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './Authors.css';
 
 // Sample authors data
@@ -54,12 +53,12 @@ const Authors = () => {
 
 const AuthorCard = ({ author }) => {
   return ( 
-    <Link to={author.booksLink} className="relative bg-gradient-to-r from-white-400 to-black-500 hover:from-gray-500 hover:to-black-500 rounded-lg shadow-lg p-6 transform transition-all hover:scale-105 hover:shadow-2xl duration-300 group">
+    <div className="relative bg-gradient-to-r from-white-400 to-black-500 hover:from-gray-500 hover:to-black-500 rounded-lg shadow-lg p-6 transform transition-all hover:scale-105 hover:shadow-2xl duration-300 group">
       <div className="text-center">
         <h3 className="text-xl font-semibold text-white">{author.name}</h3>
         <p className="text-white mt-2">{author.bio}</p>
       </div>
-    </Link>
+    </div>
   );
 };
 

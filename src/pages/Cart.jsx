@@ -96,7 +96,7 @@ const Cart = () => {
 
       {/* Success Message */}
       {showSuccess && (
-        <div className="fixed top-4 left-1/2 transform -translate-x-1/2 bg-green-600 text-white px-6 py-3 rounded-md shadow-lg animate-pop">
+        <div className="fixed top-4 left-1/2 transform -translate-x-1/2 bg-green-600 text-white px-6 py-3 rounded-md shadow-lg animate-pop z-50">
           <p>Successfully added to cart!</p>
         </div>
       )}

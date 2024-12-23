@@ -43,7 +43,7 @@ const ContactUs = () => {
       <div className="relative z-10 container mx-auto px-4 md:px-8 lg:px-16">
         <h2 className="text-4xl font-bold text-center mb-8">Contact Us</h2>
 
-        <div className="max-w-4xl mx-auto bg-black-900 bg-opacity-70 p-8 rounded-lg shadow-lg">
+        <div className="max-w-4xl mx-auto bg-black bg-opacity-70 p-8 rounded-lg shadow-lg">
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Dropdown for Issues */}
             <div>
@@ -110,7 +110,7 @@ const ContactUs = () => {
                 onChange={handleChange}
                 placeholder="Write your message here"
                 rows="5"
-                className="w-full bg-black text-white p-3 rounded-lg focus:ring-2 focus:ring-white focus:outline-none"
+                className="w-full bg-gray-900 text-white p-3 rounded-lg focus:ring-2 focus:ring-white focus:outline-none"
                 required
               ></textarea>
             </div>
