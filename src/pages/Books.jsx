@@ -10,7 +10,7 @@ const Books = () => {
   useEffect(() => {
     const fetchBooks = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/books"); // Replace with your API URL
+        const res = await axios.get("https://bookstore-1-mebz.onrender.com/api/books"); // Replace with your API URL
         setBooks(res.data.data); // Assuming API returns an array of books
         setLoading(false);
 
