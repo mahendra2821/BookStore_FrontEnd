@@ -7,21 +7,43 @@ const Cart = () => {
   const [book, setBook] = useState(null);
   const [isLoading, setIsLoading] = useState(true); // Loading state
   const [showSuccess, setShowSuccess] = useState(false); // Success message state
+  const [randomReviews, setRandomReviews] = useState([]);
 
   useEffect(() => {
     const fetchBookDetails = async () => {
       try {
         const res = await axios.get(`http://localhost:5000/api/books/${bookId}`);
         setBook(res.data.data); // Assuming API returns the book details
-        setIsLoading(false); // Set loading to false once data is fetched
+        setIsLoading(false);
+        generateRandomReviews(); // Generate random reviews
       } catch (err) {
         console.log("Error fetching book details:", err);
-        setIsLoading(false); // Stop loading even if there's an error
+        setIsLoading(false);
       }
     };
 
     fetchBookDetails();
   }, [bookId]); // Re-run the effect if the bookId changes
+
+  const generateRandomReviews = () => {
+    const reviews = [
+      "Amazing read! Highly recommended.",
+      "Insightful and well-written.",
+      "Couldn’t put it down!",
+      "Not as great as expected, but still decent.",
+      "An absolute masterpiece!",
+      "A bit slow in the middle but picks up towards the end.",
+      "Perfect for a weekend read.",
+      "Loved the characters and storytelling.",
+      "Engaging and thought-provoking.",
+      "A bit repetitive but worth reading."
+    ];
+    const randomCount = Math.floor(Math.random() * 5) + 1;
+    const selectedReviews = Array.from({ length: randomCount }, () =>
+      reviews[Math.floor(Math.random() * reviews.length)]
+    );
+    setRandomReviews(selectedReviews);
+  };
 
   // Add to cart logic
   const handleAddToCart = () => {
@@ -51,13 +73,13 @@ const Cart = () => {
   // Loading Animation
   if (isLoading)
     return (
-      <div className="flex justify-center items-center min-h-screen bg-gradient-to-r from-purple-800 via-indigo-900 to-black">
-        <div className="loader"></div>
+      <div className="flex justify-center items-center min-h-screen bg-gradient-to-b from-black via-gray-800 to-black">
+        <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-yellow-400"></div>
       </div>
     );
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-purple-800 via-indigo-900 to-black p-8 text-white">
+    <div className="min-h-screen bg-gradient-to-b bg-black p-8 text-white">
       <h1 className="text-4xl font-bold text-center text-yellow-400 mb-12 drop-shadow-lg">Book Details</h1>
       <div className="flex flex-col md:flex-row items-center justify-center gap-12">
         {/* Left Side - Book Image */}
@@ -74,12 +96,16 @@ const Cart = () => {
           <h2 className="text-3xl font-semibold text-white mb-4">{book.title}</h2>
           <p className="text-lg text-gray-300 mb-4">by {book.author}</p>
           <p className="text-sm text-gray-400 mb-6">{book.description}</p>
-          <p className="text-xl text-green-400 font-bold mb-6">${book.price}</p>
+          <p className="text-xl text-green-400 font-bold mb-6">₹{book.price}</p>
 
           {/* Reviews */}
           <div className="mb-6">
-            <h3 className="text-lg font-semibold text-white mb-2">Reviews</h3>
-            <p className="text-sm text-gray-400">⭐⭐⭐⭐☆ (20 reviews)</p>
+            <h3 className="text-lg font-semibold text-yellow-400 mb-2">Reviews</h3>
+            {randomReviews.map((review, index) => (
+              <p key={index} className="text-sm text-gray-400 italic mb-2">
+                “{review}”
+              </p>
+            ))}
           </div>
 
           {/* Add to Cart Button */}
