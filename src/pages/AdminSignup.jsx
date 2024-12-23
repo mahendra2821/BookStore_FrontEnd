@@ -61,7 +61,7 @@ const AdminSignup = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-black">
       <div className="bg-gray-900 rounded-lg shadow-lg p-6 w-full max-w-md">
-        <h2 className="text-2xl font-bold text-center mb-6 text-white">Admin Registration</h2>
+        <h2 className="text-2xl font-bold text-center mb-6 text-white">Admin SignUp</h2>
         <form onSubmit={handleSubmit}>
           {/* Name Field */}
           <div className="mb-4">
