@@ -28,7 +28,7 @@ const CartPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-purple-800 via-indigo-900 to-black p-8 text-white">
+    <div className="min-h-screen bg-gradient-to-r bg-black text-white">
       <h1 className="text-4xl font-bold text-center text-yellow-400 mb-12 drop-shadow-lg">
         Your Cart
       </h1>

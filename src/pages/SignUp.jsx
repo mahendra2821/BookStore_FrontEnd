@@ -28,7 +28,7 @@ const SignUp = () => {
     e.preventDefault();
 
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/user/signup", formData);
+      const res = await axios.post("https://bookstore-1-mebz.onrender.com/api/auth/user/signup", formData);
       setMessage(res.data.message); // Show success message
       setIsSuccess(true);
 

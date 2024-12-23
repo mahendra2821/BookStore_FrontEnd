@@ -25,7 +25,7 @@ const AdminLogin = () => {
     setIsSuccess(null);
 
     try {
-      const response = await fetch("http://localhost:5000/api/auth/admin/Login", {
+      const response = await fetch("https://bookstore-1-mebz.onrender.com/api/auth/admin/Login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
