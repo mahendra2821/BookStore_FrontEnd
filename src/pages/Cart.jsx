@@ -12,7 +12,7 @@ const Cart = () => {
   useEffect(() => {
     const fetchBookDetails = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/books/${bookId}`);
+        const res = await axios.get(`https://bookstore-1-mebz.onrender.com/api/books/${bookId}`);
         setBook(res.data.data); // Assuming API returns the book details
         setIsLoading(false);
         generateRandomReviews(); // Generate random reviews

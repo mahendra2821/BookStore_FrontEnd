@@ -35,7 +35,7 @@ const Books = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br  bg-black p-8">
       <h1 className="text-3xl text-center font-bold text-yellow-400 mb-12">Our Books</h1>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
         {books.map((book) => (
           <Link to={`/cart/${book._id}`} key={book._id}>
             <div
