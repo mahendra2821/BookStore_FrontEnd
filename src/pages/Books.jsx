@@ -33,7 +33,7 @@ const Books = () => {
     return <div className="text-center mt-10 text-red-500">{error}</div>;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-black p-8">
+    <div className="min-h-screen bg-gradient-to-br  bg-black p-8">
       <h1 className="text-3xl text-center font-bold text-yellow-400 mb-12">Our Books</h1>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
         {books.map((book) => (
@@ -56,7 +56,7 @@ const Books = () => {
               <div className="p-4">
                 <h2 className="text-sm font-semibold text-gray-800 truncate">{book.title}</h2>
                 <p className="text-xs text-gray-950 truncate font-bold">by {book.author}</p>
-                <p className="text-lg font-bold text-green-900 font-bold mt-2">Rs {book.price}</p>
+                <p className="text-lg font-bold text-green-900 mt-2">Rs {book.price}</p>
               </div>
             </div>
           </Link>

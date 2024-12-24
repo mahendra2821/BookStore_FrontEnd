@@ -55,7 +55,7 @@ const books = [
 
 const FetureBooks = () => {
   return (
-    <section className="py-16 bg-gradient-to-br from-gray-800 via-gray-900 to-black">
+    <section className="py-16 bg-gradient-to-br bg-black">
       <div className="container mx-auto px-4">
         <div className="flex overflow-x-auto snap-x snap-mandatory space-x-4 md:grid md:grid-cols-3 lg:grid-cols-4 md:space-x-0 md:gap-8">
           {books.map((book) => (
@@ -69,7 +69,7 @@ const FetureBooks = () => {
 
 const BookCard = ({ book }) => {
   return (
-    <div className="min-w-[75%] sm:min-w-[45%] md:min-w-0 relative bg-gray-800 rounded-lg shadow-lg overflow-hidden transform transition-transform hover:scale-105 duration-500 snap-start">
+    <div className="min-w-[75%] sm:min-w-[45%] md:min-w-0 relative bg-black rounded-lg shadow-lg overflow-hidden transform transition-transform hover:scale-105 duration-500 snap-start">
       <div className="relative group">
         {/* Book Image */}
         <img
