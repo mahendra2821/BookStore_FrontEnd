@@ -50,7 +50,7 @@ npm install
 bash
 Copy code
 npm start
-The frontend will run on http://localhost:5000. or https://676a1164643ca10008b7aba5--superlative-jalebi-2b55cb.netlify.app/
+The frontend will run on http://localhost:5000. or https://bookkkss.netlify.app
 
 
 ...................................................................................................................
