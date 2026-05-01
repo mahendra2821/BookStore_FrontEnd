@@ -13,7 +13,7 @@ import BookStore from "./pages/BookStore";
 import AdminLogin from "./pages/AdminLogin";
 import HomeRoutes from "./HomePages/HomeRoutes";
 import AdminSignLogin from "./pages/AdminSignLogin";
-import Cart from "./pages/Cart";
+import Cart from "./pages/Cart";    
 import CartPage from "./pages/CartPage";
 // import OrderPage from "./pages/OrderPage";
 import "./App.css"
